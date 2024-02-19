@@ -15,27 +15,24 @@ function resetBackgroundColorById(element) {
 }
 
 function removeTicketDetails(){
-    const tableRow = document.getElementsByTagName('td')
-    const tableRowFirst = tableRow[0]
-    const tableRowSecond = tableRow[1]
-    const tableRowThird = tableRow[2]
-  
-    tableRowFirst.parentNode.removeChild(tableRowFirst)
-    tableRowSecond.parentNode.removeChild(tableRowSecond)
-    tableRowThird.parentNode.removeChild(tableRowThird)
-
-//   console.log(tableRowFirst)
-//   console.log(tableRowSecond)
-//   console.log(tableRowThird)
+    const tableData = document.querySelectorAll('#order-table td')
+    let clickedElementIdValue = getElementById(clickedElementId).innerText
+    for (const td of tableData){
+        // console.log(td.innerText)
+    if(clickedElementIdValue === td.innerText)
+        td.parentNode.parentNode.removeChild(td.parentNode)
+        // console.log(td.innerText)
+    } 
+    
 }
-// removeTicketDetails()
 
 function addTicketDetails(direction) {
     const newTableRow = document.createElement('tr')
 
     const data1 = document.createElement('td')
-    data1.innerText = 'C2'
+    data1.innerText = getElementById(clickedElementId).innerText
     newTableRow.appendChild(data1)
+
 
     const data2 = document.createElement('td')
     data2.innerText = 'Economoy'

@@ -59,7 +59,41 @@
     </header>
     <main>
         <!-- Banner Section  -->
-        <section class="w-[90%] mx-auto">
+        <section class="relative w-[90%] mx-auto">
+            <div class="absolute flex gap-6 items-end justify-center -inset-20">
+                <!-- <div class="absolute flex gap-6 ml-48 -mt-20 "> -->
+                <!-- Banner Cards section  -->
+                <div class="flex gap-4  bg-white p-9 border-b-4 rounded-3xl border-primaryColor">
+                    <!-- card 1 -->
+                    <div>
+                        <img src="./images/people.png" alt="">
+                    </div>
+                    <div>
+                        <h3 class="text-4xl font-bold">500K+</h3>
+                        <p class="text-lg font-normal text-[#03071299]">Registered users</p>
+                    </div>
+                </div>
+                <div class="flex gap-4  bg-white p-9 border-b-4 rounded-3xl border-primaryColor">
+                    <!-- card 2 -->
+                    <div>
+                        <img src="./images/ticket-cupon.png" alt="">
+                    </div>
+                    <div>
+                        <h3 class="text-4xl font-bold">1.7 lacks</h3>
+                        <p class="text-lg font-normal text-[#03071299]">Tickets sold</p>
+                    </div>
+                </div>
+                <div class="flex gap-4  bg-white p-9 border-b-4 rounded-3xl border-primaryColor">
+                    <!-- card 3 -->
+                    <div>
+                        <img src="./images/stoppage.png" alt="">
+                    </div>
+                    <div>
+                        <h3 class="text-4xl font-bold">80K+</h3>
+                        <p class="text-lg font-normal text-[#03071299]">Rental partners</p>
+                    </div>
+                </div>
+            </div>
             <div class="rounded-[32px] hero min-h-[550px]" style="background-image: url(./images/banner.png);">
                 <div class="rounded-[32px] hero-overlay bg-opacity-10"></div>
                 <div class="hero-content text-center text-neutral-content">
@@ -69,9 +103,9 @@
                         <p class="mb-5">Experience seamless End-to-End travel with P Paribahan's reliable
                             services and extensive network.</p>
 
-                        <div>
+                        <div class="">
                             <a href="#booking-sec"
-                                class="hover:bg-white font-raleway border-none font-bold btn bg-primaryColor text-black btn-primary">
+                                class="z-30 hover:bg-white font-raleway border-none font-bold btn bg-primaryColor text-black btn-primary">
                                 <button>Buy Tickets</button>
                             </a>
                         </div>
@@ -512,8 +546,8 @@
                                 <div class="pt-4 relative">
                                     <input id="coupon-input" type="text" placeholder="Have any coupon?"
                                         class="input input-bordered w-full min-h-14" />
-                                    <button
-                                        id="apply-btn" class="-ml-[84px] mt-1 absolute min-w-20 btn text-white bg-primaryColor">Apply</button>
+                                    <button id="apply-btn"
+                                        class="-ml-[84px] mt-1 absolute min-w-20 btn text-white bg-primaryColor">Apply</button>
                                 </div>
                             </div>
                             <div class="flex justify-between mt-6 mb-9">
@@ -627,7 +661,8 @@
             <!-- footer sec 01 -->
             <div class="">
                 <h3 class="text-4xl font-extrabold font-raleway text-white">P-Ticket</h3>
-                <p class="text-lg pt-4 max-w-96 text-[#FFFFFFCC]">P-Ticket is a digital platform to make your daily commuting better.</p>
+                <p class="text-lg pt-4 max-w-96 text-[#FFFFFFCC]">P-Ticket is a digital platform to make your daily
+                    commuting better.</p>
             </div>
             <div class="flex flex-col items-center">
                 <h3 class="text-sm font-semibold font-raleway text-white">Download our app</h3>
@@ -637,8 +672,8 @@
         <hr class="my-6 border-t-[1px] border-dashed border-[#FFFFFF4D]">
         <div class="flex justify-between">
             <!-- footer sec 02 -->
-            <div class="mb-32 text-gray-400"
-                <p class="text-lg pt-4 max-w-96 text-gray-400">@all rights reserved, P-Ticket services limited.2024</p>
+            <div class="mb-32 text-gray-400" <p class="text-lg pt-4 max-w-96 text-gray-400">@all rights reserved,
+                P-Ticket services limited.2024</p>
             </div>
             <div class="flex text-base gap-6 text-gray-400">
                 <a class="link ">Terms & condition</a>

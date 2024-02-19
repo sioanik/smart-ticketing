@@ -20,6 +20,8 @@ let grandTotal = 0
 
 let couponValue = 0
 
+let clickedElementId = ''
+
 // for (const seat of allSeat) {
 //     // console.log(seat)
 //     seat.addEventListener('click', function (event) {
@@ -48,8 +50,14 @@ for (const seat of allSeat) {
     // console.log(seat)
     seat.addEventListener('click', function (event) {
         const selectedSeat = event.target.id
+        clickedElementId = selectedSeat
         const element = getElementById(selectedSeat)
+        const elementInnerText = element.innerText
+        // console.log(clickedElementId)
+
+        // dtInnerText (elementInnerText)
         // console.log(element.classList.contains('text-lg'))
+        // console.log(elementInnerText)
 
         if (element.classList.contains('selected')) {
             whenSelected(element)
@@ -260,3 +268,4 @@ applyBtnElement.addEventListener('click', function () {
     // }
 }
 )
+
