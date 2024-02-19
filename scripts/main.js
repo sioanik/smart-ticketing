@@ -18,6 +18,8 @@ let totalSelectedSeats = 0
 let totalPrice = 0
 let grandTotal = 0
 
+let discount = 0
+
 let couponValue = 0
 
 let clickedElementId = ''
@@ -53,6 +55,8 @@ for (const seat of allSeat) {
         clickedElementId = selectedSeat
         const element = getElementById(selectedSeat)
         const elementInnerText = element.innerText
+
+
         // console.log(clickedElementId)
 
         // dtInnerText (elementInnerText)
@@ -69,6 +73,7 @@ for (const seat of allSeat) {
             // console.log(couponValue)
 
         }
+        discountUpdate()
     }
     )
 }
@@ -105,7 +110,7 @@ function whenSelected(element) {
 
 
     // changing grand price 
-    if (couponValue === 0) {
+    if (couponValue === 0 || totalSelectedSeats <= 3) {
         grandTotal = grandTotal - 550
         const grandTotalValue = getElementById('grand-total')
         grandTotalValue.innerText = grandTotal
@@ -124,8 +129,6 @@ function whenSelected(element) {
         const grandTotalValue = getElementById('grand-total')
         grandTotalValue.innerText = newGrandTotal
     }
-
-
 
 
     // removing class 
@@ -161,26 +164,25 @@ function whenNotSelected(element) {
 
 
         // changing grand price 
-        if (couponValue === 0) {
+        if (couponValue === 0 || totalSelectedSeats <= 3) {
             grandTotal = grandTotal + 550
             const grandTotalValue = getElementById('grand-total')
             grandTotalValue.innerText = grandTotal
         }
-        else if (couponValue === 15) {
+        else if (couponValue === 15 && totalSelectedSeats === 4) {
             grandTotal = grandTotal + 550
             const discount15 = grandTotal * 15 / 100
             const newGrandTotal = grandTotal - discount15
             const grandTotalValue = getElementById('grand-total')
             grandTotalValue.innerText = newGrandTotal
         }
-        else if (couponValue === 20) {
+        else if (couponValue === 20 && totalSelectedSeats === 4) {
             grandTotal = grandTotal + 550
             const discount15 = grandTotal * 20 / 100
             const newGrandTotal = grandTotal - discount15
             const grandTotalValue = getElementById('grand-total')
             grandTotalValue.innerText = newGrandTotal
         }
-
 
         // adding class 
         element.classList.add('selected')
@@ -212,13 +214,12 @@ function new15() {
         const discount = grandTotal * 15 / 100
         const new15GrandTotal = grandTotal - discount
 
-
         const grandTotalValue = getElementById('grand-total')
         grandTotalValue.innerText = new15GrandTotal
 
         const applyBtnElement = getElementById('apply-btn')
         applyBtnElement.setAttribute('hidden', '')
-        
+
 
 
         // console.log(couponValue)
@@ -251,13 +252,13 @@ const applyBtnElement = getElementById('apply-btn')
 
 applyBtnElement.addEventListener('click', function () {
     const couponInputValue = couponInputElement.value
-    if (couponInputValue === 'NEW15') {
+    if (couponInputValue === 'NEW15' && totalSelectedSeats === 4) {
         couponValue = 15
         new15()
         couponInputElement.disabled = true
         // console.log(couponValue)
     }
-    else if (couponInputValue === 'Couple 20') {
+    else if (couponInputValue === 'Couple 20' && totalSelectedSeats === 4) {
         couponValue = 20
         Couple20()
         couponInputElement.disabled = true
@@ -266,6 +267,21 @@ applyBtnElement.addEventListener('click', function () {
     //     const grandTotalValue = getElementById('grand-total')
     //     grandTotalValue.innerText = grandTotal
     // }
+    discountUpdate()
 }
 )
 
+function discountUpdate() {
+    const totalPriceText = getElementById('total-price').innerText
+    const totalPriceValue = parseInt(totalPriceText)
+
+    const grandTotalText = getElementById('grand-total').innerText
+    const grandTotalValue = parseInt(grandTotalText)
+
+    let discountValue = getElementById('discount')
+    
+    discount = totalPriceValue - grandTotalValue
+    discountValue.innerText = discount
+
+    // console.log(discount)
+}
